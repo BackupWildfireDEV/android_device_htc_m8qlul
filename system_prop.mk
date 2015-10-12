@@ -66,9 +66,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 #PRODUCT_PROPERTY_OVERRIDES += \
 #    ro.cwm.forbid_format=/boot,/firmware,/mpt,/persist,/persist-lg,/sns
 
-# USB
++# MTP
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.sys.isUsbOtgEnabled=true
+    persist.sys.usb.config=mtp
 
 #####################################################
 # Start of void's additions based on stock htc_m8qlul
@@ -132,4 +132,3 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     telephony.lteOnGsmDevice=1 \
     telephony.lteOnCdmaDevice=1
-
