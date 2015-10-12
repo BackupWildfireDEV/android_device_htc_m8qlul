@@ -66,9 +66,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 #PRODUCT_PROPERTY_OVERRIDES += \
 #    ro.cwm.forbid_format=/boot,/firmware,/mpt,/persist,/persist-lg,/sns
 
-# USB
++# MTP
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.sys.isUsbOtgEnabled=true
+    persist.sys.usb.config=mtp
 
 PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.isa.arm64.features=div
@@ -128,4 +128,3 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     telephony.lteOnGsmDevice=1 \
     telephony.lteOnCdmaDevice=1
-
