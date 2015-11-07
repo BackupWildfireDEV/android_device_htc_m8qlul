@@ -178,10 +178,31 @@ const char CameraParameters::LIGHTFX_HDR[] = "high-dynamic-range";
 
 // HTC settings
 const char CameraParameters::SCENE_MODE_TEXT[] = "text";
+const char CameraParameters::BURST_MODE_LIMIT20[] = "limit-20";
+const char CameraParameters::BURST_MODE_UNLIMITED[] = "unlimited";
+const char CameraParameters::OIS_MODE_OFF[] = "off";
+const char CameraParameters::OIS_MODE_ON[] = "on";
+const char CameraParameters::CONTI_BURST_CAPTURING[] = "contiburst-capturing";
+const char CameraParameters::CONTI_BURST_CAPTURE_DONE[] = "contiburst-done";
+const char CameraParameters::APP_OIS_SETTING_FALSE[] = "false";
+const char CameraParameters::APP_OIS_SETTING_TRUE[] = "true";
+const char CameraParameters::KEY_GPU_EFFECT[] = "GPU-effect";
+const char CameraParameters::KEY_GPU_EFFECT_PARAM_0[] = "GE-param0";
+const char CameraParameters::KEY_GPU_EFFECT_PARAM_1[] = "GE-param1";
+const char CameraParameters::KEY_GPU_EFFECT_PARAM_2[] = "GE-param2";
+const char CameraParameters::KEY_GPU_EFFECT_PARAM_3[] = "GE-param3";
+const char CameraParameters::KEY_FORCE_USE_AUDIO_ENABLED[] = "forceuseaudio";
+const char CameraParameters::KEY_ZSL[] = "zsl";
+const char CameraParameters::KEY_CAMERA_MODE[] = "camera-mode";
 const char CameraParameters::KEY_SMILEINFO_BYFACE_SUPPORTED[] = "smileinfo-byface-supported";
+const char CameraParameters::ZSL_OFF[] = "off";
+
+#ifdef CAMERA_PARAMETERS_EXTRA_C
+CAMERA_PARAMETERS_EXTRA_C
+#endif
 
 CameraParameters::CameraParameters()
-    : CameraParameters_EXT(this), mMap()
+                : CameraParameters_EXT(this), mMap()
 {
 }
 
@@ -544,8 +565,23 @@ int CameraParameters::previewFormatToEnum(const char* format) {
         !strcmp(format, PIXEL_FORMAT_RGBA8888) ?
             HAL_PIXEL_FORMAT_RGBA_8888 :    // RGB8888
         !strcmp(format, PIXEL_FORMAT_BAYER_RGGB) ?
-            HAL_PIXEL_FORMAT_RAW_SENSOR :   // Raw sensor data
+            HAL_PIXEL_FORMAT_RAW16 :   // Raw sensor data
         -1;
 }
 
-}; // namespace android
+bool CameraParameters::isEmpty() const {
+    return mMap.isEmpty();
+}
+
+
+void CameraParameters::getBrightnessLumaTargetSet(int *magic, int *sauce) const{};
+void CameraParameters::setBrightnessLumaTargetSet(int brightness, int luma) {
+    char str[32];
+    snprintf(str, sizeof(str),"%d,%d", brightness, luma);
+    set("brightness-luma-target-set", str);
+};
+void CameraParameters::getRawSize(int *magic, int *sauce) const{};
+void CameraParameters::setZsl(const char *sauce) { set("zsl",sauce);};
+const char *CameraParameters::getZsl() const { return get("zsl");};
+
+};
