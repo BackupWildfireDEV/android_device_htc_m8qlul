@@ -2,8 +2,6 @@ type mmc_block_device_modem, dev_type;
 type mmc_block_device_ssd, dev_type;
 type akmd_device, dev_type;
 type smux_device, dev_type;
-type qsc_device, dev_type;
-type usf_device, dev_type;
 type cwmcu_device, dev_type;
 type invensense_device, dev_type;
 type hs_device, dev_type;
