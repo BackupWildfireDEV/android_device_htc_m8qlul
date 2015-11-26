@@ -66,7 +66,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 #PRODUCT_PROPERTY_OVERRIDES += \
 #    ro.cwm.forbid_format=/boot,/firmware,/mpt,/persist,/persist-lg,/sns
 
-+# MTP
+# MTP
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.usb.config=mtp
 
