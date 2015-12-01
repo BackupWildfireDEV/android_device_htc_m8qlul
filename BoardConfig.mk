@@ -202,10 +202,10 @@ TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 
 # SELinux
-#include device/qcom/sepolicy/sepolicy.mk
+include device/qcom/sepolicy/sepolicy.mk
 
-#BOARD_SEPOLICY_DIRS += \
-#    $(DEVICE_PATH)/sepolicy
+BOARD_SEPOLICY_DIRS += \
+    $(DEVICE_PATH)/sepolicy
 
 # Video
 TARGET_HAVE_SIGNED_VENUS_FW := true
