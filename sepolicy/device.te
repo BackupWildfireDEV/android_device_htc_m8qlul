@@ -12,7 +12,6 @@ type vcsFPService_device, dev_type;
 # BT lock device for BCM4335
 type btlock_device, dev_type;
 
-type vold_device, dev_type;
 type mm-qcamerad_device, dev_type;
 type audiod_device, dev_type;
 type pmem_device, dev_type;
